@@ -8,7 +8,7 @@
 * @license   https://github.com/jstayton/Miner/blob/master/LICENSE-MIT MIT
 * @link      https://developers.google.com/maps/documentation/geocoding/intro
 * @package   GoogleMapsGeocoder
-* @version   2.4.2
+* @version   2.4.3
 */
 class GoogleMapsGeocoder{
 
@@ -551,10 +551,14 @@ class GoogleMapsGeocoder{
             return $response;
         }
         elseif($this->isFormatJson()){
-            return json_decode($response, true);
+            $data = json_decode($response, true);
+            $this->setVarsFromArray($data);
+            return $data;
         }
         elseif($this->isFormatXml()){
-            return new SimpleXMLElement($response);
+            $data = new SimpleXMLElement($response);
+            $this->setVarsFromObject($data);
+            return $data;
         }
         return $response;
     }
@@ -578,6 +582,26 @@ class GoogleMapsGeocoder{
         else{
             return file_get_contents($url);
         }
+    }
+    
+    /**
+     * Sets the variables from an array
+     * @param array $data This should be the array data retrieved from Google
+     */
+    protected function setVarsFromArray($data){
+        $this->setLatitudeLongitude($data['results'][0]['geometry']['location']['lat'], $data['results'][0]['geometry']['location']['lng']);
+        $this->setBounds($data['results'][0]['geometry']['bounds']['southwest']['lat'], $data['results'][0]['geometry']['bounds']['southwest']['lng'], $data['results'][0]['geometry']['bounds']['northeast']['lat'], $data['results'][0]['geometry']['bounds']['northeast']['lng']);
+        $this->setLocationType($data['results'][0]['geometry']['location_type']);
+    }
+        
+    /**
+     * Sets the variables from an object
+     * @param array $data This should be the object of data retrieved from Google
+     */
+    protected function setVarsFromObject($data){
+        $this->setLatitudeLongitude($data->result->geometry->location->lat, $data->result->geometry->location->lng);
+        $this->setBounds($data->result->geometry->bounds->southwest->lat, $data->result->geometry->bounds->southwest->lng, $data->result->geometry->bounds->northeast->lat, $data->result->geometry->bounds->northeast->lng);
+        $this->setLocationType($data->result->geometry->location_type);
     }
 
     /**
