@@ -24,17 +24,17 @@ Installation
 
 The recommended installation method is through
 [Composer](http://getcomposer.org/), a dependency manager for PHP. Just add
-`jstayton/google-maps-geocoder` to your project's `composer.json` file:
+`adamb/google-maps-geocoder` to your project's `composer.json` file:
 
 ```json
 {
     "require": {
-        "jstayton/google-maps-geocoder": "*"
+        "adamb/google-maps-geocoder": "*"
     }
 }
 ```
 
-[More details](http://packagist.org/packages/jstayton/google-maps-geocoder) can
+[More details](http://packagist.org/packages/AdamB7586/google-maps-geocoder) can
 be found over at [Packagist](http://packagist.org).
 
 ### Manually
