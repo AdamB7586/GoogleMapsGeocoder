@@ -3,9 +3,14 @@
     "type": "library",
     "description": "A PHP wrapper for the Google Maps Geocoding API v3.",
     "keywords": ["google", "map", "maps", "gmap", "gmaps", "geocode", "geocoder", "geocoding"],
-    "homepage": "https://github.com/jstayton/GoogleMapsGeocoder",
+    "homepage": "https://github.com/AdamB7586/GoogleMapsGeocoder",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Adam Binnersley",
+            "homepage": "http://www.adambinnersley.co.uk",
+            "role": "Modifier"
+        },
         {
             "name": "Justin Stayton",
             "homepage": "http://justinstayton.com",

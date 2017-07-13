@@ -88,13 +88,6 @@ the `geocode`
 for making the request over HTTPS or preventing conversion (instead returning
 the raw plain text response).
 
-Feedback
---------
-
-Please open an issue to request a feature or submit a bug report. Or even if
-you just want to provide some feedback, I'd love to hear. I'm also available on
-Twitter as [@jstayton](http://twitter.com/jstayton).
-
 Contributing
 ------------
 
